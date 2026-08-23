@@ -24,9 +24,9 @@ sudo dnf copr enable filippor/bazzite -y
 rpm-ostree install cyan-skillfish-governor-smu radeontop
 
 # acpi fix (C-states only, P-states doesn't work per upstream README)
-[ -d bc250-acpi-fix ] || git clone https://github.com/bc250-collective/bc250-acpi-fix.git
+[ -d bc250-acpi-fix-updated-8c ] || git clone https://github.com/mendesrr/bc250-acpi-fix-updated-8c
 sudo mkdir -p /etc/dracut.conf.d/acpi/
-sudo cp bc250-acpi-fix/SSDT-CST.aml /etc/dracut.conf.d/acpi/
+sudo cp bc250-acpi-fix-updated-8c/SSDT-CST.aml /etc/dracut.conf.d/acpi/
 cat <<EOF | sudo tee /etc/dracut.conf.d/99-acpi-override.conf
 acpi_override="yes"
 acpi_table_dir="/etc/dracut.conf.d/acpi"
