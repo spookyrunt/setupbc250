@@ -1,5 +1,5 @@
 # setupbc250
-Run both scripts one by one after [BIOS flashing](https://elektricm.github.io/amd-bc250-docs/bios/flashing). This includes two BC-250 install scripts setting up:
+Run both scripts one by one after [BIOS flashing](https://elektricm.github.io/amd-bc250-docs/bios/flashing) on Bazzite. This project includes two BC-250 install scripts setting up:
 - bc250_memcfg — lower VRAM split (VRAM minimum) to 512MB
 - Disable amd_iommu (kernel parameter)
 - Quiet boot as default (kernel parameter)
