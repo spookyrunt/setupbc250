@@ -9,9 +9,11 @@ sudo systemctl restart cyan-skillfish-governor-smu
 # 8 core cpu unlock
 [ -d bc250-core-cu-unlock ] || git clone https://github.com/GabriWar/bc250-core-cu-unlock
 cd bc250-core-cu-unlock
+sudo systemctl stop cyan-skillfish-governor-smu
 sudo ./bc250-8core-unlock.sh status  # show the current mask
 sudo ./bc250-8core-unlock.sh apply   # unlock now
 sudo ./bc250-8core-unlock.sh install # persist: installs and enables a systemd unit
+sudo systemctl start cyan-skillfish-governor-smu
 cd ..
 
 # 24+ ~40 cu gpu unlock
