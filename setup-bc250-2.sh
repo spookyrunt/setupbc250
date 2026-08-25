@@ -27,6 +27,9 @@ sudo ./bc250-cu-live-manager.sh
 cd bc250-buddy
 BC250_ASSUME_YES=1 ./install.sh cpu
 
+# zswap + btrfs swapfile
+BC250_ASSUME_YES=1 ./install.sh mem
+
 # watchdog: optional: resets hardlock and logs heartbeat (sensor temperature/power tracking)
 BC250_ASSUME_YES=1 ./install.sh watchdog
 

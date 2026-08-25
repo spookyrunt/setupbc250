@@ -10,4 +10,5 @@ Run both scripts one by one after [BIOS flashing](https://elektricm.github.io/am
 - CPU 8-core unlock (bc250-core-cu-unlock)
 - GPU from 24 to up to 40 CU/WGP unlock (bc250-cu-live-manager)
 - CPU overclock to 3850MHz (bc250-buddy)
+- Install zswap + btrfs swapfile instead of zram
 - Hardware watchdog + crash forensics heartbeat (bc250-buddy)
