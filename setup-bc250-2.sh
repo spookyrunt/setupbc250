@@ -2,8 +2,38 @@
 set -euo pipefail
 
 # governer gpu clock boost
-sudo sed -i '/^\[frequency-range\]/,/^\[/ s/^max = [0-9]*/max = 2000/' /etc/cyan-skillfish-governor-smu/config.toml
+sudo sed -i '/^\[frequency-range\]/,/^\[/ s/^max = [0-9]*/max = 2300/' /etc/cyan-skillfish-governor-smu/config.toml
 sudo sed -i '/frequency = 2000/{n;s/voltage = [0-9]*/voltage = 1000/}' /etc/cyan-skillfish-governor-smu/config.toml
+cat <<'EOF' | sudo tee -a /etc/cyan-skillfish-governor-smu/config.toml
+
+[[safe-points]]
+frequency = 2050
+voltage = 1050
+
+[[safe-points]]
+frequency = 2100
+voltage = 1050
+
+[[safe-points]]
+frequency = 2125
+voltage = 1050
+
+[[safe-points]]
+frequency = 2150
+voltage = 1100
+
+[[safe-points]]
+frequency = 2200
+voltage = 1100
+
+[[safe-points]]
+frequency = 2230
+voltage = 1100
+
+[[safe-points]]
+frequency = 2300
+voltage = 1150
+EOF
 sudo systemctl restart cyan-skillfish-governor-smu
 
 # 8 core cpu unlock
@@ -22,10 +52,9 @@ curl -L -o bc250-cu-live-manager.sh https://raw.githubusercontent.com/WinnieLV/b
 chmod +x bc250-cu-live-manager.sh
 sudo ./bc250-cu-live-manager.sh
 
-# cpu overclock
+# buddy for cpu mem watchdog
 [ -d bc250-buddy ] || git clone https://github.com/samedayhurt/bc250-buddy
 cd bc250-buddy
-BC250_ASSUME_YES=1 ./install.sh cpu
 
 # zswap + btrfs swapfile
 BC250_ASSUME_YES=1 ./install.sh mem
