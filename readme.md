@@ -3,7 +3,7 @@ Run all three scripts one by one after [BIOS flashing](https://elektricm.github.
 - `bc250_memcfg` — lower VRAM split (VRAM minimum) to 512MB
 - Disable `amd_iommu` (kernel parameter)
 - Quiet boot as default (kernel parameter)
-- Expand shared GPU memory limits (14.5–14.75GB, gttsize/ttm kernel parameters)
+- Expand `ttm` shared GPU memory limit to allow up to full physical pool (kernel parameter)
 - Install `cyan-skillfish-governor-smu` and `radeontop`
 - ACPI fix — C-States only, P-States excluded
 - Set GPU governor clock cap to 2300MHz / 1150mV (`cyan-skillfish-governor-smu`)

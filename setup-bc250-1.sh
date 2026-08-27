@@ -13,11 +13,13 @@ sudo ./bc250memcfg UMA_SIZE 512
 rpm-ostree kargs --append-if-missing=amd_iommu=off
 rpm-ostree kargs --append-if-missing=quiet
 
-# kernel parameters for maximum GPU memory access (14.5-14.75GB)
+# kernel parameters for maximum GPU memory access (16GB / full physical pool)
 rpm-ostree kargs \
-  --append-if-missing="amdgpu.gttsize=14750" \
-  --append-if-missing="ttm.pages_limit=3959290" \
-  --append-if-missing="ttm.page_pool_size=3959290"
+  --delete-if-present="amdgpu.gttsize=14750" \
+  --delete-if-present="ttm.pages_limit=3959290" \
+  --delete-if-present="ttm.page_pool_size=3959290" \
+  --append="ttm.pages_limit=4194304" \
+  --append="ttm.page_pool_size=4194304"
 
 # gpu governor & radeontop
 sudo dnf copr enable filippor/bazzite -y
