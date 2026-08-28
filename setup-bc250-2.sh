@@ -52,7 +52,7 @@ curl -L -o bc250-cu-live-manager.sh https://raw.githubusercontent.com/WinnieLV/b
 chmod +x bc250-cu-live-manager.sh
 sudo ./bc250-cu-live-manager.sh
 
-# buddy for cpu mem watchdog
+# buddy for zswap btrfs swapfile watchdog
 [ -d bc250-buddy ] || git clone https://github.com/samedayhurt/bc250-buddy
 cd bc250-buddy
 

@@ -12,9 +12,16 @@ if [ "$CORES" -ne 8 ]; then
 fi
 
 # cpu overclock
-[ -d bc250-buddy ] || git clone https://github.com/samedayhurt/bc250-buddy
-cd bc250-buddy
-BC250_ASSUME_YES=1 BC250_OC_FREQ=3900 BC250_OC_VID=1280 ./install.sh cpu
+[ -d ~/bc250_smu_oc ] || git clone https://github.com/bc250-collective/bc250_smu_oc.git ~/bc250_smu_oc
+cd ~/bc250_smu_oc
+pipx install --force .
+bc250-detect --frequency 3900 --vid 1300
+bc250-apply --install overclock.conf
+sudo systemctl enable --now bc250-smu-oc.service
+echo ""
+echo "Result:"
+cat /etc/bc250-smu-oc.conf
+# grep 'cpu MHz' /proc/cpuinfo | head -8
 
 echo ""
 echo "Done."
