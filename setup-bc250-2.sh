@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # governer gpu clock boost
-sudo sed -i '/^\[frequency-range\]/,/^\[/ s/^max = [0-9]*/max = 2300/' /etc/cyan-skillfish-governor-smu/config.toml
+sudo sed -i '/^\[frequency-range\]/,/^\[/ s/^max = [0-9]*/max = 2230/' /etc/cyan-skillfish-governor-smu/config.toml
 sudo sed -i '/frequency = 2000/{n;s/voltage = [0-9]*/voltage = 1000/}' /etc/cyan-skillfish-governor-smu/config.toml
 cat <<'EOF' | sudo tee -a /etc/cyan-skillfish-governor-smu/config.toml
 

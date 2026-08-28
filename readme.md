@@ -6,7 +6,7 @@ Run all three scripts one by one after [BIOS flashing](https://elektricm.github.
 - Expand `ttm` shared GPU memory limit to allow up to full physical pool (kernel parameter)
 - Install `cyan-skillfish-governor-smu` and `radeontop`
 - ACPI fix — C-States only, P-States excluded
-- Set GPU governor clock cap to 2300MHz / 1150mV (`cyan-skillfish-governor-smu`)
+- GPU overclock to 2230MHz @ 1100mV (`cyan-skillfish-governor-smu`)
 - CPU 8-core unlock (`bc250-core-cu-unlock`)
 - GPU from 24 to up to 40 CU/WGP unlock (`bc250-cu-live-manager.sh`)
 - Install `zswap` + btrfs swapfile instead of `zram` (`bc250-buddy`)
